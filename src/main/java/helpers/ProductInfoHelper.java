@@ -17,4 +17,5 @@ public class ProductInfoHelper {
         .filter(el -> Integer.parseInt(el.$("[class='cell-2 cell-md m_b-sm']").text().trim()) >= warranty);
         collectionOfOffers.get(0).$("[class='btn-orange btn-cell']").click();
     };
+
 }
