@@ -5,6 +5,8 @@ import pages.MainPage;
 import pages.ProductInfoPage;
 import pages.SearchResultPage;
 
+import static com.codeborne.selenide.Selenide.open;
+
 /**
  * Created by user on 05.09.2016.
  */
@@ -20,6 +22,7 @@ public class PagesInit {
     ProductInfoPage productInfoPage;
 
     public PagesInit() {
+        driver = new Driver();
         log = Logger.getLogger(getClass());
         browserCapabilities = new BrowserCapabilities();
     }
@@ -33,7 +36,7 @@ public class PagesInit {
     public void init() {
         try {
             //browser driver initialization
-            browserCapabilities.initBrowserCapabilities(driver.getDriver());
+            browserCapabilities.initBrowserCapabilities();
 
             //pages
             mainPage = new MainPage(driver.getDriver());

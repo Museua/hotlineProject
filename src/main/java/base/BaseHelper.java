@@ -12,4 +12,8 @@ public class BaseHelper {
     public void goLink(String link) {
         open(link);
     }
+
+    public boolean checkDisplayedSiteWithProduct(String link) {
+        return link.equals(driver.getCurrentUrl().trim());
+    }
 }

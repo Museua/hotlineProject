@@ -16,6 +16,7 @@ public class TestBase {
     public TestBase() {
         softAssert = new SoftAssert();
         pagesInit = new PagesInit();
+        log = Logger.getLogger(String.valueOf(getClass()));
     }
 
     @BeforeClass
@@ -28,14 +29,14 @@ public class TestBase {
         }
     }
 
-    @BeforeMethod
-    public void methodInit(ITestContext context) {
-        try {
-            runInit();
-        } catch (Exception e){
-            System.out.println("Catch " + e);
-        }
-    }
+//    @BeforeMethod
+//    public void methodInit(ITestContext context) {
+//        try {
+//            runInit();
+//        } catch (Exception e){
+//            System.out.println("Catch " + e);
+//        }
+//    }
 
     @AfterMethod
     public void driverDieBeforeMethod(ITestResult result){

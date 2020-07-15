@@ -1,7 +1,11 @@
 package base;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.URL;
 
 public class Driver {
     private WebDriver driver;
@@ -11,6 +15,10 @@ public class Driver {
 
     public WebDriver getDriver() {
         return driver;
+    }
+
+    public WebDriver setDriver(RemoteWebDriver driver) {
+        return this.driver = driver;
     }
 
     public void close() {
@@ -34,5 +42,10 @@ public class Driver {
 
     public boolean hasLive() {
         return driver == null;
+    }
+
+    public Object setDriver(URL url, ChromeOptions options) {
+        this.driver = new RemoteWebDriver(url, options);
+        return this.driver;
     }
 }
