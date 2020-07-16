@@ -1,4 +1,5 @@
 package testBase;
+import com.codeborne.selenide.WebDriverRunner;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -29,19 +30,10 @@ public class TestBase {
         }
     }
 
-//    @BeforeMethod
-//    public void methodInit(ITestContext context) {
-//        try {
-//            runInit();
-//        } catch (Exception e){
-//            System.out.println("Catch " + e);
-//        }
-//    }
-
     @AfterMethod
     public void driverDieBeforeMethod(ITestResult result){
         try{
-            pagesInit.getDriver().close();
+            WebDriverRunner.closeWebDriver();
         }
         catch (Exception e){
             System.out.println("Catch driverDieBeforeMethod " + e);

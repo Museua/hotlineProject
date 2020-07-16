@@ -1,11 +1,7 @@
 package pages;
 
 import helpers.MainPageHelper;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-
-import static com.codeborne.selenide.Selenide.$;
-import static locators.MainPageLocators.SEARCH_INPUT;
 
 public class MainPage {
     private WebDriver driver;

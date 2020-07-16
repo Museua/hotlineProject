@@ -8,13 +8,14 @@ public class ProductInfoPage {
     private ProductInfoHelper productInfoHelper;
 
     public ProductInfoPage(WebDriver driver) {this.driver = driver;
-        productInfoHelper = new ProductInfoHelper();}
+        productInfoHelper = new ProductInfoHelper(driver);}
 
     public void openTabWhereToBuy() {
         productInfoHelper.openTabWhereToBuy();
     }
 
     public void getLinkOfChipestOfferByCommentsAndWarranty(int comments, int warranty) {
-        productInfoHelper.getLinkOfChipestOfferByCommentsAndWarranty(comments, warranty);
+        String chipestPrice = productInfoHelper.getChipestPriceWithFittedOptionsCommentsAndWarranty(comments, warranty);
+        productInfoHelper.openLinkWithChiepestPrice(chipestPrice);
     }
 }
