@@ -1,5 +1,6 @@
 package base;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -16,15 +17,7 @@ public class BaseHelper {
     }
 
     public boolean checkDisplayedSiteWithProduct(String link) {
+        $x("//*[contains(.,'iPhone')]").shouldBe(Condition.visible);
         return WebDriverRunner.url().contains(link);
     }
-
-    /**
-     * Wait for Ajax call to finish
-     */
-    public void waitForReadyPage() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("return jQuery.active == 0");
-    }
-
 }
