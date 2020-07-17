@@ -19,4 +19,12 @@ public class SearchResultPage {
     public void openFirstSuitableResultByText(String nameOfProduct) {
         searchResultPageHelper.openFirstSuitableResultByText(nameOfProduct);
     }
+
+    public boolean checkMatchingDisplayedProductsWithProvided(String pathToFile) {
+        return searchResultPageHelper.checkMatchingDisplayedProductsWithProvided(pathToFile);
+    }
+
+    public void sortOffersBy(String text) {
+        searchResultPageHelper.sortOffersBy(text);
+    }
 }

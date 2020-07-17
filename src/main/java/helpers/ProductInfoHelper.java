@@ -9,11 +9,9 @@ import static com.codeborne.selenide.Selenide.*;
 import static locators.ProductInfoLocators.*;
 
 public class ProductInfoHelper {
-    private BaseHelper baseHelper;
     WebDriver driver;
 
     public ProductInfoHelper(WebDriver driver) {
-        baseHelper = new BaseHelper(driver);
         this.driver = driver;
     }
 
@@ -38,7 +36,6 @@ public class ProductInfoHelper {
                             fittedPrices.add(cost);
                         }
                     } catch (NumberFormatException e) {
-                        System.out.println("NumberFormatException: For input string - " + e);
                     }
                 }
             }

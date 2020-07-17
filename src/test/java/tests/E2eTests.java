@@ -30,4 +30,16 @@ public class E2eTests  extends TestBase {
         log.info("Test is finished");
     }
 
+    @Test
+    public void useCase2(){
+        log.info("Test is started");
+        goLink("https://hotline.ua");
+        log.info("Search needed product");
+        pagesInit.getMainPage().searchProduct("iPhone");
+        log.info("Sort products");
+        pagesInit.getSearchResultPage().sortOffersBy("к-ву предложений");
+        log.info("Check matching page list with file list");
+        Assert.assertTrue(pagesInit.getSearchResultPage().checkMatchingDisplayedProductsWithProvided("src/main/resources/files/listOfProducts.csv"));
+        log.info("Test is finished");
+    }
 }

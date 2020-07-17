@@ -7,3 +7,6 @@
 /.factorypath
 /.project
 /.settings/
+/allure-report
+/allure-results
+/log

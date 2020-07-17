@@ -8,7 +8,6 @@ import base.PagesInit;
 
 import java.util.logging.Logger;
 
-import static libs.AllureInit.allureInit;
 import static libs.Listeners.listenersForSelenide;
 
 public class TestBase {
