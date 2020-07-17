@@ -11,7 +11,6 @@
     <properties>
         <aspectj.version>1.8.9</aspectj.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <browser>${browser}</browser>
     </properties>
     <build>
         <plugins>
@@ -34,6 +33,12 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 
     <dependencies>
@@ -92,29 +97,10 @@
             <version>5.1</version>
         </dependency>
     </dependencies>
-
+        <!--XML files-->
     <profiles>
         <profile>
-            <id>firefox</id>
-            <properties>
-            <browser>firefox</browser>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <id>chrome</id>
-            <properties>
-                <browser>chrome</browser>
-            </properties>
-<!--            <activation>-->
-<!--                <activeByDefault>true</activeByDefault>-->
-<!--            </activation>-->
-        </profile>
-        <!--XML files-->
-        <profile>
-            <id>alltests</id>
+            <id>tests</id>
             <build>
                 <plugins>
                     <plugin>
@@ -128,6 +114,21 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>chrome</id>
+            <properties>
+                <browser>chrome</browser>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>firefox</id>
+            <properties>
+                <browser>firefox</browser>
+            </properties>
         </profile>
     </profiles>
 </project>
