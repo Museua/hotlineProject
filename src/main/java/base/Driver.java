@@ -17,8 +17,8 @@ public class Driver {
         return driver;
     }
 
-    public WebDriver setDriver(RemoteWebDriver driver) {
-        return this.driver = driver;
+    public void setDriver(WebDriver driver) {
+        this.driver = driver;
     }
 
     public void close() {

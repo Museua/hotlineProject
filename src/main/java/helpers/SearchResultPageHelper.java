@@ -13,12 +13,6 @@ public class SearchResultPageHelper {
     public SearchResultPageHelper(Logger log){this.log = log;}
 
     public void openFirstSuitableResultByText(String nameOfProduct) {
-        $(String.format(LIST_OF_SUITABLE_PRODUCTS, nameOfProduct)).shouldBe(Condition.visible);
-        if ($$(String.format(LIST_OF_SUITABLE_PRODUCTS, nameOfProduct)).size() > 0) {
-            $$(String.format(LIST_OF_SUITABLE_PRODUCTS, nameOfProduct)).get(0).click();
-            System.out.println($$(String.format(LIST_OF_SUITABLE_PRODUCTS, nameOfProduct)).size());
-        } else {
-            log.info("There are no suitable products. Size of list - " + $$(String.format(LIST_OF_SUITABLE_PRODUCTS, nameOfProduct)).size());
-        }
+        $$(String.format(LIST_OF_SUITABLE_PRODUCTS, nameOfProduct)).shouldBe(CollectionCondition.sizeGreaterThan(0)).get(0).click();
     }
 }

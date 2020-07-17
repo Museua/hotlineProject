@@ -8,6 +8,9 @@ import base.PagesInit;
 
 import java.util.logging.Logger;
 
+import static libs.AllureInit.allureInit;
+import static libs.Listeners.listenersForSelenide;
+
 public class TestBase {
 
     public SoftAssert softAssert;
@@ -24,7 +27,8 @@ public class TestBase {
     public void classInit(ITestContext context) {
         try {
             runInit();
-        }
+            listenersForSelenide();
+            }
         catch (Exception e){
             System.out.println("Catch " + e);
         }

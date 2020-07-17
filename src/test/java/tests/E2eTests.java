@@ -17,11 +17,16 @@ public class E2eTests  extends TestBase {
     public void useCase1(){
         log.info("Test is started");
         goLink("https://hotline.ua");
+        log.info("Search needed product");
         pagesInit.getMainPage().searchProduct("iPhone");
+        log.info("Open suitable product");
         pagesInit.getSearchResultPage().openFirstSuitableResultByText("Apple iPhone 7");
+        log.info("Open tab with offers");
         pagesInit.getProductInfoPage().openTabWhereToBuy();
+        log.info("Get cheaper offer and go to offer page");
         pagesInit.getProductInfoPage().getLinkOfChipestOfferByCommentsAndWarranty(10, 6);
-        Assert.assertTrue(pagesInit.getBaseHelper().checkDisplayedSiteWithProduct("jetpad.com.ua"));
+        log.info("Check is open offer page");
+        Assert.assertTrue(pagesInit.getBaseHelper().checkDisplayedSiteWithProduct("bigmag.ua"));
         log.info("Test is finished");
     }
 

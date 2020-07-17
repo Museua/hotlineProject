@@ -1,35 +1,29 @@
 package helpers;
 
 import base.BaseHelper;
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.*;
 import org.openqa.selenium.WebDriver;
 
 import java.util.*;
 import static com.codeborne.selenide.Selenide.*;
-import static locators.ProductInfoLocators.DIALOG_POPUP_BLOCK_BUTTON;
-import static locators.ProductInfoLocators.WHERE_TO_BUY_TAB;
+import static locators.ProductInfoLocators.*;
 
 public class ProductInfoHelper {
     private BaseHelper baseHelper;
+    WebDriver driver;
 
     public ProductInfoHelper(WebDriver driver) {
         baseHelper = new BaseHelper(driver);
+        this.driver = driver;
     }
 
     public void openTabWhereToBuy() {
-        if(DIALOG_POPUP_BLOCK_BUTTON.isDisplayed()){
-            DIALOG_POPUP_BLOCK_BUTTON.click();
-        }
-        WHERE_TO_BUY_TAB.scrollIntoView(true).click();
-        baseHelper.waitForAjax();
+        WHERE_TO_BUY_TAB.scrollIntoView("{block: \"center\"}").click();
     }
 
     public String getChipestPriceWithFittedOptionsCommentsAndWarranty(int commentsAmount, int warrantyAmount) {
         List<Integer> fittedPrices = new ArrayList<>();
-        ElementsCollection offerId = $$("[class*='offers-item']");
+        ElementsCollection offerId = OFFERS.shouldBe(CollectionCondition.sizeGreaterThan(0));
         for(SelenideElement elem:offerId) {
             if ($("[data-id='" + elem.getAttribute("data-id") + "'] [data-tracking-id='offer-1']").isDisplayed()) {
                 String rareCommentText = $("[data-id='" + elem.getAttribute("data-id") + "'] [data-tracking-id='offer-1']").text();

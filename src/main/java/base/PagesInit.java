@@ -36,7 +36,7 @@ public class PagesInit {
     public void init() {
         try {
             //browser driver initialization
-            browserCapabilities.initBrowserCapabilities();
+            driver.setDriver(browserCapabilities.initBrowserCapabilities());
 
             //pages
             mainPage = new MainPage(driver.getDriver());
