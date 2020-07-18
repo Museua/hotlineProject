@@ -22,29 +22,26 @@ public class SearchResultPageHelper {
         $$(String.format(LIST_OF_SUITABLE_PRODUCTS, nameOfProduct)).shouldBe(CollectionCondition.sizeGreaterThan(0)).get(0).click();
     }
 
-    public boolean checkMatchingDisplayedProductsWithProvided(String path) {
+    public boolean checkMatchingDisplayedProductsWithProvided(int amountOfElemnts, String path) {
         try {
             CSVReader reader = new CSVReader(new FileReader(path));
             String [] nextLine;
-            List<String> listFromInterface = PRODUCT_TITLES.shouldBe(CollectionCondition.sizeGreaterThan(10)).texts();
-            List<String> listFromInterface2 = listFromInterface.stream().limit(10).collect(Collectors.toList());
+            List<String> listFromInterface = PRODUCT_TITLES.shouldBe(CollectionCondition.sizeGreaterThan(amountOfElemnts)).texts()
+                    .stream().limit(amountOfElemnts).collect(Collectors.toList());
 
             while ((nextLine = reader.readNext()) != null) {
                 String nameOfProduct = "";
-                for (int i = 0; i < 10; i++) {
                     for (String row : nextLine) {
                         nameOfProduct += row;
                         nameOfProduct += " ";
                     }
-                    String fdfsf = nameOfProduct.trim();
-                    if (listFromInterface2.stream().filter(el->el.contains(fdfsf)).collect(Collectors.toList()).size() < 1) {
-                        System.out.println("There are no present product. File product - " + fdfsf);
+                    String formatedString = nameOfProduct.trim();
+                    if (listFromInterface.stream().filter(el->el.contains(formatedString)).collect(Collectors.toList()).size() < 1) {
+                        System.out.println("There are no present product. File product - " + formatedString);
                         System.out.println("List of products at page - ");
-                        listFromInterface2.forEach(el-> System.out.println(el));
+                        listFromInterface.forEach(el-> System.out.println(el));
                         return false;
                     }
-                    break;
-                }
             }
         } catch (CsvValidationException | IOException e) {
             e.printStackTrace();

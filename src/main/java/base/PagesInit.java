@@ -5,11 +5,6 @@ import pages.MainPage;
 import pages.ProductInfoPage;
 import pages.SearchResultPage;
 
-import static com.codeborne.selenide.Selenide.open;
-
-/**
- * Created by user on 05.09.2016.
- */
 public class PagesInit {
 
     private BrowserCapabilities browserCapabilities;
@@ -30,8 +25,6 @@ public class PagesInit {
     public Driver getDriver() {
         return driver;
     }
-
-    public BrowserCapabilities getBrowserCapabilities() { return browserCapabilities; }
 
     public void init() {
         try {

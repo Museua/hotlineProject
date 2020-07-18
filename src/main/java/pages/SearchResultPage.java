@@ -20,8 +20,8 @@ public class SearchResultPage {
         searchResultPageHelper.openFirstSuitableResultByText(nameOfProduct);
     }
 
-    public boolean checkMatchingDisplayedProductsWithProvided(String pathToFile) {
-        return searchResultPageHelper.checkMatchingDisplayedProductsWithProvided(pathToFile);
+    public boolean checkMatchingDisplayedProductsWithProvided(int amountOfElements, String pathToFile) {
+        return searchResultPageHelper.checkMatchingDisplayedProductsWithProvided(amountOfElements, pathToFile);
     }
 
     public void sortOffersBy(String text) {

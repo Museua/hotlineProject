@@ -39,7 +39,7 @@ public class E2eTests  extends TestBase {
         log.info("Sort products");
         pagesInit.getSearchResultPage().sortOffersBy("к-ву предложений");
         log.info("Check matching page list with file list");
-        Assert.assertTrue(pagesInit.getSearchResultPage().checkMatchingDisplayedProductsWithProvided("src/main/resources/files/listOfProducts.csv"));
+        Assert.assertTrue(pagesInit.getSearchResultPage().checkMatchingDisplayedProductsWithProvided(10,"src/main/resources/files/listOfProducts.csv"));
         log.info("Test is finished");
     }
 }

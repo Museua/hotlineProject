@@ -17,7 +17,7 @@ public class BaseHelper {
     }
 
     public boolean checkDisplayedSiteWithProduct(String link) {
-        $x("//*[contains(.,'iPhone')]").shouldBe(Condition.visible);
+        $x("//*[contains(.,'" + link + "')]").shouldBe(Condition.visible);
         return WebDriverRunner.url().contains(link);
     }
 }

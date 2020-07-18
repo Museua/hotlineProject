@@ -1,6 +1,5 @@
 package helpers;
 
-import base.BaseHelper;
 import com.codeborne.selenide.*;
 import org.openqa.selenium.WebDriver;
 
